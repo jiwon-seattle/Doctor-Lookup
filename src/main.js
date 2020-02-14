@@ -6,26 +6,26 @@ import './styles.css' ;
 
 $(document).ready(function() {
   $('#findtheDoctor').click(function() {
-
-    let promise = new Promise(function(resolve, reject){
-      let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2018-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=5&user_key=${process.env.API_KEY}`
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
+    fetch('https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=632cb65d3c0037a4cd102982fbaee2a3')
+      .then(function(response) {
+        if (response.ok && response.status == 200) {
+          return response.json();
         } else {
-          reject(Error(request.statusText));
+          return false;
         }
-      }
+      })
+      .catch(function(error) {
+        return false;
+      })
+      .then(function(jsonifedResponse) {
+        getElements(jsonifedResponse)
+      });
 
-    request.open("GET", url, true);
-    request.send();
-  });
-    promise.then(function(response){
-      let body = JSON.parse(response);
-      $('#doctorNameResult').text(data);
-    }, function(error) {
-      $('#doctorNameResult').text(`${error.message}`)
-    });
+    const getElements = function(response) {
+      if (response) {
+        $('#doctorNameResult').text(response)
+      }
+    }
+
   });
 });
