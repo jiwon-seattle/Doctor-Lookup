@@ -16,13 +16,13 @@ module.exports = {
         },
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
+    new Dotenv(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Title',
       template: './src/index.html',
       inject: 'body'
     })
-    new Dotenv(),
   ],
   module: {
     rules: [

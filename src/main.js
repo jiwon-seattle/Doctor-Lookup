@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap' ;
 import 'bootstrap/dist/css/bootstrap.min.css' ;
 import './styles.css' ;
-import { WeatherService } from './weather-service';
+import { WeatherService } from './doctor-service';
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
@@ -15,14 +15,13 @@ $(document).ready(function() {
       getElements(response);
 
     }) ();
-    console.log(reponse)
-    console.log(response.data)
-    // function getElements (response) {
-    //   for (var i = 0; i <)
+
+    function getElements (response) {
+      // for (var i = 0; i <)
       $('.showHumidity').text(response);
       $('.showTemp').text(`${response.data}`);
-      console.log(response.data[0])
-
+      console.log(response.data.length)
+}
 
   });
 });
