@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script type="text/javascript" src="doctor-service.js"></script>
+      <script type="text/javascript" src="weather-interface.js"></script>
       <title>Weather</title>
     </head>
     <body>
       <div class="container">
-        <h1>Doctor Lookupn</h1>
-        <h3>Find the potential doctors who will treat your medical issues.
-          <form>
-            <label for="doctorName">Please enter a doctor's name that you are looking for.</label>
-            <button id="findtheDoctor">click here</button>
-            <br>
-
-            <div id="doctorNameResult"></div>
-
-            <br>
-            <br>
-         </form>
+        <h1>Get Weather Conditions From Anywhere!</h1>
+        <label for="location">Enter a location:</label>
+        <input id="location" type="text">
+        <button class="btn-success" id="weatherLocation">Get Current Temperature and Humidity</button>
+        <div class="errors"></div>
+        <div class="showHumidity"></div>
+        <div class="showTemp"></div>
       </div>
     </body>
   </html>

@@ -1,33 +1,8 @@
-export class Dinoipsum {
-
-
-  getDinoLength(response){
-    this.response = response
-    this.response[0];
-    let DinoName = this.response[0];
-    let StringDinoName = DinoName.toString();
-    let arrayDinoLetters = StringDinoName.split("");
-    return arrayDinoLetters.length;
-  }
-  createblankArray(){
-
-  }
-
-  getDinoLetterArray(response){
-    this.response = response
-    this.response[0];
-    let DinoName = this.response[0];
-    let StringDinoName = DinoName.toString();
-    let arrayDinoLetters = StringDinoName.split("");
-    return arrayDinoLetters;
-  }
-  
-  async getDinoName() {
+export class WeatherService {
+  async getWeatherByCity(city) {
     try {
-      const response = await fetch(`http://dinoipsum.herokuapp.com/api/?format=json&words=1&paragraphs=1`);
+      let response = await fetch(`https://api.betterdoctor.com/2018-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=5&user_key=632cb65d3c0037a4cd102982fbaee2a3`);
       let jsonifiedResponse = await response.json();
-      // console.log(response);
-      // console.log(jsonifiedResponse);
       return jsonifiedResponse;
     } catch(error) {
       console.error("There was an error handling your request: " + error.message);

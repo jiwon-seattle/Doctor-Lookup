@@ -2,30 +2,27 @@ import $ from 'jquery';
 import 'bootstrap' ;
 import 'bootstrap/dist/css/bootstrap.min.css' ;
 import './styles.css' ;
-// import { Doctor } from './doctor-service-service.js';
+import { WeatherService } from './weather-service';
 
 $(document).ready(function() {
-  $('#findtheDoctor').click(function() {
-    fetch('https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=632cb65d3c0037a4cd102982fbaee2a3')
-      .then(function(response) {
-        if (response.ok && response.status == 200) {
-          return response.json();
-        } else {
-          return false;
-        }
-      })
-      .catch(function(error) {
-        return false;
-      })
-      .then(function(jsonifedResponse) {
-        getElements(jsonifedResponse)
-      });
+  $('#weatherLocation').click(function() {
+    const city = $('#location').val();
+    $('#location').val("");
 
-    const getElements = function(response) {
-      if (response) {
-        $('#doctorNameResult').text(response)
-      }
-    }
+    (async () => {
+      let weatherService = new WeatherService();
+      const response = await weatherService.getWeatherByCity(city);
+      getElements(response);
+
+    }) ();
+    console.log(reponse)
+    console.log(response.data)
+    // function getElements (response) {
+    //   for (var i = 0; i <)
+      $('.showHumidity').text(response);
+      $('.showTemp').text(`${response.data}`);
+      console.log(response.data[0])
+
 
   });
 });
