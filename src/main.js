@@ -12,10 +12,10 @@ $(document).ready(function() {
     (async () => {
       let weatherService = new WeatherService();
       const response = await weatherService.getWeatherByCity(city);
-      getElements(response);
-      var x = weatherService.doctors(response);
-      console.log(x)
-
+      let doctors = weatherService.doctors(response);
+      console.log(doctors[0])
+      //getElements(response);
+      $('.showHumidity').text(doctors[0].bio)
     }) ();
 
     function getElements (response) {
