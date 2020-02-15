@@ -8,4 +8,12 @@ export class WeatherService {
       console.error("There was an error handling your request: " + error.message);
     }
   }
+
+  doctors(response) {
+    this.response = response
+    let doctors = []
+      for (var i = 0; i <response.data.length; i ++) {
+      doctors.push(response.data[i].profile)
+    }return doctors
+  }
 }

@@ -13,6 +13,8 @@ $(document).ready(function() {
       let weatherService = new WeatherService();
       const response = await weatherService.getWeatherByCity(city);
       getElements(response);
+      var x = weatherService.doctors(response);
+      console.log(x)
 
     }) ();
 
@@ -20,8 +22,9 @@ $(document).ready(function() {
       // for (var i = 0; i <)
       $('.showHumidity').text(response);
       $('.showTemp').text(`${response.data}`);
-      console.log(response.data.length)
-}
+      console.log('response is' + response.data)
+
+      }
 
   });
 });
