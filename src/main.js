@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap' ;
 import 'bootstrap/dist/css/bootstrap.min.css' ;
 import './styles.css' ;
-import { WeatherService } from './doctor-service';
+import { DoctorService } from './doctor-service';
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
@@ -10,21 +10,35 @@ $(document).ready(function() {
     $('#location').val("");
 
     (async () => {
-      let weatherService = new WeatherService();
-      const response = await weatherService.getWeatherByCity(city);
-      let doctors = weatherService.doctors(response);
-      console.log(doctors[0])
+      let doctorService = new DoctorService();
+      const response = await doctorService.getWeatherByCity(city);
+      let lan = response.results[0].geometry.lat
+      let lng = response.results[0].geometry.lng
+      const doctorResponse = await doctorService.getDoctors(lan, lng);
+      console.log(doctorResponse.data[0]);
+      //let doctors = weatherService.doctors(doctorResponse);
+      //console.log(doctors)
+      let doctorList = doctorService.doctorsProfile(doctorResponse)
+      console.log(doctorList)
+      //getElements(doctors)
+
+      // let doctors = weatherService.doctors(response);
+      // console.log(doctors[0])
       //getElements(response);
-      $('.showHumidity').text(doctors[0].bio)
+      // $('.showHumidity').text(doctors[0].bio)
     }) ();
 
-    function getElements (response) {
-      // for (var i = 0; i <)
-      $('.showHumidity').text(response);
-      $('.showTemp').text(`${response.data}`);
-      console.log('response is' + response.data)
-
-      }
-
+    //function getElements (doctors) {
+      //let pictures = ""
+    //  for (var i = 0; i < doctors.length; i++;) {
+    //  $('#picture').append(`<img src = ${doctors[0].image_url}>`);
+  // //  } return pictures
+  //     console.log(pictures)
+  //     $('.picture').append(pictures[0]);
+    //  $('.showTemp').text(`${response.data}`);
+      //console.log('response is' + response.data)
+      //console.log(response.results)
+  //  }
+    //}
   });
 });
