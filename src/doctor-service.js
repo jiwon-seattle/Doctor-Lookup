@@ -1,3 +1,5 @@
+import Handlebars from 'handlebars/dist/cjs/handlebars'
+
 export class DoctorService {
   async getWeatherByCity(city) {
     try {
@@ -21,19 +23,22 @@ export class DoctorService {
 
 
   doctors(response) {
-    this.response = response
+  //  this.response = response
     let doctors = []
     let doctorsNumber = []
       for (var i = 0; i <response.data.length; i ++) {
-      doctors.push(response.data.licenses.npi)
+      doctors.push(response.data[i].practices[0].uid)
 
     }return doctors
   }
 
-  doctorsProfile(data) {
+
+  doctorsProfile (data) {
       var template = Handlebars.compile(document.getElementById('doctors-template').innerHTML);
       document.getElementById('doctorsInCity').innerHTML = template(data);
-
     }
 
+  // doctorsInformation (data) {
+  //   var
+  // }
 }

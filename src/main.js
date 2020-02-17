@@ -15,11 +15,13 @@ $(document).ready(function() {
       let lan = response.results[0].geometry.lat
       let lng = response.results[0].geometry.lng
       const doctorResponse = await doctorService.getDoctors(lan, lng);
-      console.log(doctorResponse.data[0]);
+      console.log(doctorResponse.data);
       //let doctors = weatherService.doctors(doctorResponse);
       //console.log(doctors)
       let doctorList = doctorService.doctorsProfile(doctorResponse)
       console.log(doctorList)
+      let doctors = doctorService.doctors(doctorResponse)
+      console.log(doctors)
       //getElements(doctors)
 
       // let doctors = weatherService.doctors(response);

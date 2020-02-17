@@ -25,8 +25,12 @@
           <tbody>
           {{#data}}
           <tr>
-            <td><a href="{{attribute_url}}" target="_new">
+            <td><a href="{{#doctorInfo}}" target="_new">
             {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
+            <div id="doctorInfo">
+            <h3> Better Doctors - {{profile.first_name}}
+              <p class="address">
+              </p>
             </td>
             <td>{{profile.title}}</td>
             <td><img src="{{profile.image_url}}"></img></td>
@@ -34,25 +38,22 @@
 
 
             {{/data}}
-
-
-
             </tbody>
           </table>
-          <h3>BetterDoctor - {{data.profile.first_name}}
-          {{data.profile.middle_name}} {{data.profile.last_name}}, {{data.profile.title}}</h3>
-            <p class="address">
-              {{#data.practices}}
-              {{name}}<br>
-              {{visit_address.street}}<br>
-              <visit_address.city}}, {{visit_address.state}}
-              <visit_address.zip}}
-              {{/data.practices}}
-            </p>
 
+          // <h3>BetterDoctor - {{profile.first_name}}
+          // {{profile.middle_name}} {{data.profile.last_name}}, {{data.profile.title}}</h3>
+          //   <p class="address">
+          //     {{#data.practices}}
+          //     {{name}}<br>
+          //     {{visit_address.street}}<br>
+          //     <visit_address.city}}, {{visit_address.state}}
+          //     <visit_address.zip}}
+          //     {{/data.practices}}
+          //   </p>
 
         </script>
 
 
-    </body>
+    <script type="text/javascript" src="bundle.js"></script></body>
   </html>
