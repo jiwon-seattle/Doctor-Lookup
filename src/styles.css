@@ -1,3 +1,19 @@
 td, th {
   padding-right: 20px;
 }
+
+medicalIssue {
+  display: none;
+}
+
+
+body::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background: url('https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO%20Images%202018/Magazine/03%20March/CR-Magazine-Hero-March-2018-doctor-degrees-natural-0118');
+  background-size: 100% 100%;
+  opacity: 0.3;
+}

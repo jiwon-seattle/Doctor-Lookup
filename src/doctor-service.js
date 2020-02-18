@@ -11,9 +11,9 @@ export class DoctorService {
       console.error("There was an error handling your request: " + error.message);
     }
   }
-  async getDoctors(lat, lng) {
+  async getDoctors(issue, lat, lng) {
     try {
-      let response = await fetch(`https://api.betterdoctor.com/2016-03-01/doctors?location=${lat},${lng},100&skip=2&limit=20&user_key=632cb65d3c0037a4cd102982fbaee2a3`)
+      let response = await fetch(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=${lat},${lng},100&skip=2&limit=20&user_key=632cb65d3c0037a4cd102982fbaee2a3`)
       let jsonifiedResponse = await response.json();
       return jsonifiedResponse;
     } catch(error) {
