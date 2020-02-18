@@ -9,9 +9,16 @@
     <body>
       <div class="container">
         <h1>Search potential doctors in the city that you are looking for.</h1>
-        <label for="location">Enter a location:</label>
-        <input id="location" type="text">
-        <button class="btn-success" id="weatherLocation">Find the doctors</button>
+        <form id="doctorLocation">
+          <label for="location">Enter a location:</label>
+          <input id="location" type="text">
+          <button class="btn-success">Find the doctors</button>
+        </form>
+        <form id="issueList">
+           <label for="issue">Enter a medical issue that you have</label>
+           <input id="issue" type="text">
+           <button value="submit" class="btn-success">Find the medical issues</button>
+        </form>
         <div id="doctorsInCity"></div>
         <script id="doctors-template" type="text/x-handlers-template">
         <h4>Better Doctor - Doctor Search Results</h4>
@@ -24,7 +31,7 @@
           <tbody>
           {{#data}}
           <tr>
-            <td><a class="doctorsName" href="{{attribute_url}}">
+            <td><a class="doctorsName">
             {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
             </td>
             <td>{{profile.title}}</td>
@@ -33,6 +40,7 @@
             {{/data}}
             </tbody>
           </table>
+
         </script>
 
 

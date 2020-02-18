@@ -32,19 +32,26 @@ export class DoctorService {
 
 
   doctorsProfile (data) {
-      for (var i = 0; i < data.length; i++){
-        var newDiv = document.createElement("div")
-        newDiv.id = 'doctor' + i;
-
+    var template = Handlebars.compile(document.getElementById('doctors-template').innerHTML);
+    document.getElementById('doctorsInCity').innerHTML = template(data);
 
       }
-      var template = Handlebars.compile(document.getElementById('doctors-template').innerHTML);
-      document.getElementById('doctorsInCity').innerHTML = template(data);
-
-      var html = template({
-        id: [
-          {url: "www.yahoo.com"}
-        ]
-      })
+      // var template = Handlebars.compile(document.getElementByClass('').innerHTML);
+      // document.getElementByClass('doctorsInCity').innerHTML = template(data);
+      //
+      // var html = template({
+      //   id: [
+      //     {url: "www.yahoo.com"}
+      //   ]
+      // })
     }
-}
+    // for (var i = 0; i < data.length; i++){
+    //   var newDiv = document.createElement("div")
+    //   newDiv.id = 'doctor' + i;
+    //   newDiv.class = 'doctors';
+    //   var p = document.createElement('p');
+    //   var bio = data[i].data.profile.bio
+    //
+    //   p.innerHTML = bio
+    //   div.appendChild(bio)
+    //   container.appendChild(div)

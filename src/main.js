@@ -5,8 +5,10 @@ import './styles.css' ;
 import { DoctorService } from './doctor-service';
 
 $(document).ready(function() {
-  $('#weatherLocation').click(function() {
+  $('#doctorLocation').submit(function() {
+    event.preventDefault();
     const city = $('#location').val();
+    console.log(city)
     $('#location').val("");
 
     (async () => {
@@ -15,13 +17,14 @@ $(document).ready(function() {
       let lan = response.results[0].geometry.lat
       let lng = response.results[0].geometry.lng
       const doctorResponse = await doctorService.getDoctors(lan, lng);
-      console.log(doctorResponse.data);
-      //let doctors = weatherService.doctors(doctorResponse);
-      //console.log(doctors)
+      console.log(doctorResponse);
+      let doctors = doctorService.doctors(doctorResponse);
+      console.log(doctors)
       let doctorList = doctorService.doctorsProfile(doctorResponse)
       console.log(doctorList)
-      let doctors = doctorService.doctors(doctorResponse)
-      console.log(doctors)
+      // let doctors = doctorService.doctorsProfile(doctorResponse)
+      // console.log(doctors)
+
       //getElements(doctors)
 
       // let doctors = weatherService.doctors(response);
@@ -44,9 +47,14 @@ $(document).ready(function() {
   //  }
     //}
   });
-
+    $('#issueList').submit(function(event) {
+      event.preventDefault();
+      const issue = $('#issue').val();
+      console.log(issue)
+    })
   $(document).on('click', '.doctorsName', function() {
-    alert('hi');
+
+
 
 });
 
