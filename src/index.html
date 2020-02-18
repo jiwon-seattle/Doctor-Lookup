@@ -12,7 +12,6 @@
         <label for="location">Enter a location:</label>
         <input id="location" type="text">
         <button class="btn-success" id="weatherLocation">Find the doctors</button>
-
         <div id="doctorsInCity"></div>
         <script id="doctors-template" type="text/x-handlers-template">
         <h4>Better Doctor - Doctor Search Results</h4>
@@ -25,32 +24,15 @@
           <tbody>
           {{#data}}
           <tr>
-            <td><a href="{{attribute_url}}" target="_new">
+            <td><a class="doctorsName" href="{{attribute_url}}">
             {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
             </td>
             <td>{{profile.title}}</td>
             <td><img src="{{profile.image_url}}"></img></td>
             </tr>
-
-
             {{/data}}
-
-
-
             </tbody>
           </table>
-          <h3>BetterDoctor - {{data.profile.first_name}}
-          {{data.profile.middle_name}} {{data.profile.last_name}}, {{data.profile.title}}</h3>
-            <p class="address">
-              {{#data.practices}}
-              {{name}}<br>
-              {{visit_address.street}}<br>
-              <visit_address.city}}, {{visit_address.state}}
-              <visit_address.zip}}
-              {{/data.practices}}
-            </p>
-
-
         </script>
 
 

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     (async () => {
       let doctorService = new DoctorService();
-      const response = await doctorService.getWeatherByCity(city);
+      const response = await doctorService.getDoctorByCity(city);
       let lan = response.results[0].geometry.lat
       let lng = response.results[0].geometry.lng
       const doctorResponse = await doctorService.getDoctors(lan, lng);
@@ -30,6 +30,7 @@ $(document).ready(function() {
       // $('.showHumidity').text(doctors[0].bio)
     }) ();
 
+
     //function getElements (doctors) {
       //let pictures = ""
     //  for (var i = 0; i < doctors.length; i++;) {
@@ -43,4 +44,10 @@ $(document).ready(function() {
   //  }
     //}
   });
+
+  $(document).on('click', '.doctorsName', function() {
+    alert('hi');
+
+});
+
 });
