@@ -61,9 +61,10 @@ $(document).ready(function() {
     //}
   });
 //   });
-//   //
-//   // $(document).on('click', '.doctorsName', function() {
-//   //
+// //   //
+//   $(document).on('click', '.doctorsName', function() {
+//     createElement
+
 //
 //
 // });

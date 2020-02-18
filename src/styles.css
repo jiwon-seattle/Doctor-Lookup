@@ -1,11 +1,6 @@
 td, th {
-  padding-right: 20px;
+  padding-right: 40px;
 }
-
-medicalIssue {
-  display: none;
-}
-
 
 body::before {
   content: "";
@@ -13,7 +8,13 @@ body::before {
   height: 100%;
   position: absolute;
   z-index: -1;
-  background: url('https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO%20Images%202018/Magazine/03%20March/CR-Magazine-Hero-March-2018-doctor-degrees-natural-0118');
+  background: url('https://media.istockphoto.com/vectors/abstract-medical-background-with-flat-icons-and-symbols-concepts-and-vector-id1135100330?k=6&m=1135100330&s=612x612&w=0&h=R4I2eLIruKByqzdnmDVoVwfm8-8q4XmQ-pjhK82V8pA=');
   background-size: 100% 100%;
   opacity: 0.3;
+}
+
+.form-control {
+  width: 400px;
+  display: flex;
+
 }
