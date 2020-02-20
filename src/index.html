@@ -29,9 +29,10 @@
           <tbody>
           {{#data}}
           <tr>
-            <td><a class="doctorsName">
+            <td><a id="{{uid}}" class="doctorsName">
             {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
             </td>
+
             <td>{{profile.title}}</td>
             <td><img src="{{profile.image_url}}"></img></td>
             </tr>
@@ -39,8 +40,10 @@
             </tbody>
           </table>
 
-        </script>
 
+        </script>
+        <div id="doctorInformation"></div>
+        <
 
     </body>
   </html>

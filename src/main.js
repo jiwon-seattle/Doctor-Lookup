@@ -8,7 +8,6 @@ $(document).ready(function() {
   $('#doctorLocationIssue').submit(function(event) {
     event.preventDefault();
     const city = $('#location').val();
-    console.log(city)
     const issue = $('#issue').val();
 
     (async () => {
@@ -17,11 +16,13 @@ $(document).ready(function() {
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
         const doctorResponse = await doctorService.getDoctors(issue, lan, lng);
-        console.log(doctorResponse);
+        console.log('doctorResponse' + doctorResponse);
         let doctors = doctorService.doctors(doctorResponse);
         console.log(doctors)
         let doctorList = doctorService.doctorsProfile(doctorResponse)
-        console.log(doctorList)
+        console.log(doctorList.data)
+        // let doctorInfo = doctorService.doctorsInfo(doctorResponse);
+        // console.log(doctorInfo)
         // let doctors = doctorService.doctorsProfile(doctorResponse)
         // console.log(doctors)
 
@@ -32,6 +33,13 @@ $(document).ready(function() {
         //getElements(response);
         // $('.showHumidity').text(doctors[0].bio)
       }) ();
+
+      // let hasbeenclicked = false;
+      // $('#uid').click(function () {
+      //   hasbeenclicked = true;
+      // });
+
+
   });
 
 
