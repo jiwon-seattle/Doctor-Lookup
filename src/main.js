@@ -1,28 +1,41 @@
-import $ from 'jquery';
-import 'bootstrap' ;
-import 'bootstrap/dist/css/bootstrap.min.css' ;
-import './styles.css' ;
-import { DoctorService } from './doctor-service';
+import $ from 'jquery'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles.css'
+import { DoctorService } from './doctor-service'
 
 $(document).ready(function() {
-  $('#doctorLocationIssue').submit(function(event) {
-    event.preventDefault();
-    const city = $('#location').val();
-    const issue = $('#issue').val();
+  $('#searchDoctorName').click(function() {
+    $(".doctorName").show();
+    $(".Issue").hide();
+  })
 
-    (async () => {
-        let doctorService = new DoctorService();
-        const response = await doctorService.getDoctorByCity(city);
+  $('#searchIssue').click(function() {
+    $(".doctorName").hide();
+    $(".Issue").show();
+  })
+
+  $('#doctorIssue').submit(function(event) {
+    event.preventDefault()
+    console.log('hi')
+
+    const city = $('#location').val()
+    const issue = $('#issue').val()
+    //const doctorName = $('#doctorName').val()
+
+    asynAPICall(issue)
+
+    async function asynAPICall(issue) {
+        let doctorService = new DoctorService()
+        const response = await doctorService.getDoctorByCity(city)
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
-        const doctorResponse = await doctorService.getDoctors(issue, lan, lng);
-        console.log('doctorResponse' + doctorResponse);
-        let doctors = doctorService.doctors(doctorResponse);
+        const doctorResponse = await doctorService.getDoctors(issue, lan, lng)
+        console.log('doctorResponse' + doctorResponse)
+        let doctors = doctorService.doctors(doctorResponse)
         console.log(doctors)
         let doctorList = doctorService.doctorsProfile(doctorResponse)
-        console.log(doctorList.data)
-        // let doctorInfo = doctorService.doctorsInfo(doctorResponse);
-        // console.log(doctorInfo)
+        console.log(doctorList.data.specialties[0])
         // let doctors = doctorService.doctorsProfile(doctorResponse)
         // console.log(doctors)
 
@@ -32,7 +45,7 @@ $(document).ready(function() {
         // console.log(doctors[0])
         //getElements(response);
         // $('.showHumidity').text(doctors[0].bio)
-      }) ();
+      }
 
       // let hasbeenclicked = false;
       // $('#uid').click(function () {
@@ -40,11 +53,49 @@ $(document).ready(function() {
       // });
 
 
-  });
+  })
+
+  $('#doctorName').submit(function(event) {
+    event.preventDefault()
+    console.log('hello')
+    $("#doctorsInCity").hide();
+
+    const city = $('#location').val()
+    const doctorName = $('#doctorName').val()
+
+    asynAPICall(doctorName)
+
+    async function asynAPICall(doctorName) {
+        let doctorService = new DoctorService()
+        const response = await doctorService.getDoctorByCity(city)
+        let lan = response.results[0].geometry.lat
+        let lng = response.results[0].geometry.lng
+        const doctorResponse = await doctorService.getDoctorInfo(doctorName, lan, lng)
+        console.log('doctorResponse' + doctorResponse)
+        //let doctors = doctorService.doctors(doctorResponse)
+        //console.log(doctors)
+        let doctorDetail = doctorService.doctorInfo(doctorResponse)
+        console.log(doctorDetail)
+        // let doctors = doctorService.doctorsProfile(doctorResponse)
+        // console.log(doctors)
+
+        //getElements(doctors)
+
+        // let doctors = weatherService.doctors(response);
+        // console.log(doctors[0])
+        //getElements(response);
+        // $('.showHumidity').text(doctors[0].bio)
+      }
+
+      // let hasbeenclicked = false;
+      // $('#uid').click(function () {
+      //   hasbeenclicked = true;
+      // });
 
 
-      //
-      // fetch(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=${lat},${lng},100&skip=2&limit=20&user_key=632cb65d3c0037a4cd102982fbaee2a3`)
+  })
+
+   // fetch(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=${lat},${lng},100&skip=2&limit=20&user_key=632cb65d3c0037a4cd102982fbaee2a3`)
       //   .then(function(response){
       //     let json = response.json();
       //     return json
@@ -67,14 +118,4 @@ $(document).ready(function() {
       //console.log(response.results)
   //  }
     //}
-  });
-//   });
-// //   //
-//   $(document).on('click', '.doctorsName', function() {
-//     createElement
-
-//
-//
-// });
-//
-// });
+})

@@ -9,14 +9,36 @@
     <body>
       <div class="container">
         <h1>Search potential doctors in the city that you are looking for.</h1>
-        <form id="doctorLocationIssue">
+
+        <form id="doctorIssue">
           <div class="form-row">
-            <label for="locationIssue">Enter a location and medical issue:</label>
-            <input class="form-control-sm" id="location" type="text">
-            <input class="form-control-sm" id="issue" type="text">
-            <button class="btn-info">Find the doctors</button>
+            <div class="locationIssue">
+              <label for="location">Enter a location:</label>
+              &nbsp;
+              <input class="form-control-sm" id="location" type="text" "submit" required>
+              &nbsp;
+            </div>
+            <div class="Issue">
+              <label for="Issue">A medical issue:</label>
+              &nbsp;
+              <input class="form-control-sm" type="text" required>
+              <button type="submit" class="btn-info" id="issue">Find the doctors</button>
+              <button id="searchDoctorName" type="button">Search by doctor's name?</button>
+            </div>
+          </form>
+          <form id="doctorName">
+            <div class="doctorName">
+              <label for="doctorName">A doctor name:</label>
+              &nbsp;
+              <input class="form-control-sm" type="text" required>
+              &nbsp;
+              <button type="submit" class="btn-info" id="name">FInd the doctors</button>
+              <button id="searchIssue" type="button">Search medical issue?</button>
+            </div>
+            &nbsp;
           </div>
         </form>
+
         <div id="doctorsInCity"></div>
         <script id="doctors-template" type="text/x-handlers-template">
         <h4>Better Doctor - Doctor Search Results</h4>
@@ -24,7 +46,7 @@
           <thead>
           <th>Name</th>
           <th>Title</h5></th>
-          <th>Picture</th>
+          <th>specialties</th>
           </thead>
           <tbody>
           {{#data}}
@@ -34,16 +56,43 @@
             </td>
 
             <td>{{profile.title}}</td>
-            <td><img src="{{profile.image_url}}"></img></td>
+            <td>{{specialties.[0].name}}</td>
             </tr>
             {{/data}}
             </tbody>
           </table>
-
-
         </script>
+
         <div id="doctorInformation"></div>
-        <
+        <script id="doctorInfo-template" type="text/x-handlers-template">
+        <h3>BetterDoctor - {{data.profile.first_name}} {{data.profile.last_name}}, {{data.profile.title}}</h3>
+        <p class="address">
+          {{#data.practices}}
+          {{name}}<br>
+          {{visit_address.street}}<br>
+          {{visit_address.city}}, {{visit_address.state}} {{visit_address.zip}}
+          {{/data.practices}}
+        </p>
+        <p class="bio">{{data.profile.dynamic_bio}}</p>
+        <table>
+        <tr>
+          <td><a href="{{data.attribution_url}}" target="_new">{{data.attribution_url}}</a></td>
+        </tr>
+        <tr>
+          <th>Picture</th>
+          <td><img src="{{data.profile.image_url}}"></img></td>
+        </tr>
+        <tr>
+          <th>Specialties</th>
+          <td>
+          {{#data.specialties}}
+          {{name}}
+          <br>
+          {{/data.specialties}}
+          </td>
+        </tr>
+        </table>
+      </script>
 
     </body>
   </html>
