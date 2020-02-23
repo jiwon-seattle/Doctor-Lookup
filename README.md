@@ -19,7 +19,7 @@ A website created with object oriented JavaScript and HTML returns a medical dat
 ## Setup/Installation Requirements
 
 1. Download and install Node.js from the official website.
-2. Clone this repository, https://github.com/jiwon-seattle/Super-Galactic-Age-Calculator.git.
+2. Clone this repository, https://github.com/jiwon-seattle/Doctor-Lookup.git.
 3. Use a command line/Bash to navigate to this project.
 4. Run npm install to get all dependencies.
 5. Run npm start to initiate the program.
@@ -43,4 +43,4 @@ _Email jiwon1.han@gmail.com with any questions, comments, or concerns._
 
 *This software is licensed under the MIT license*
 
-Copyright (c) 2020 **_{Jiwon Han}_**
+Copyright (c) 2020 **_Jiwon Han_**
