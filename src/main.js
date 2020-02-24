@@ -14,7 +14,7 @@ $(document).ready(function() {
 
   $('#searchIssue').click(function() {
     $(".doctorName").hide();
-    $(".locationDoctor").show();
+    $(".locationDoctor").hide();
     $(".Issue").show();
     $(".locationIssue").show();
   })
@@ -23,9 +23,9 @@ $(document).ready(function() {
     event.preventDefault()
     console.log('hi')
 
-    const city = $('#location').val()
+    const city = $('#locationIssue').val()
     const issue = $('#issue').val()
-
+    console.log(issue)
     asynAPICall(issue)
 
     async function asynAPICall(issue) {
@@ -50,21 +50,22 @@ $(document).ready(function() {
     console.log('hello')
     $("#doctorsInCity").hide();
 
-    const city = $('#location').val()
-    const doctorName = $('#doctorName').val()
+    const city = $('#locationDoctor').val()
+    const name  = $('#name').val()
+    console.log(name)
+    console.log(city)
+    asynAPICall(name)
 
-    asynAPICall(doctorName)
-
-    async function asynAPICall(doctorName) {
+    async function asynAPICall(name) {
         let doctorService = new DoctorService()
         const response = await doctorService.getDoctorByCity(city)
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
-        const doctorResponse = await doctorService.getDoctorInfo(doctorName, lan, lng)
+        const doctorResponse = await doctorService.getDoctorInfo(name, lan, lng)
         console.log('doctorResponse is' + doctorResponse)
 
         let doctorDetail = doctorService.doctorInfo(doctorResponse)
-        console.log(doctorDetail)
+        console.log('doctor detail is' + doctorDetail)
 
       }
 
