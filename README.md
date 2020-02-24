@@ -8,13 +8,13 @@
 
 A website created with object oriented JavaScript and HTML returns a medical data via 'the BetterDoctor API'. This is a live API by a Series A funded startup currently under active development, and used by industry heavy-hitter such as HealthNet to provide accurate medical data.
 
-
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "venus" | Output: "226.3 year" |
-| **A user should be able to enter a name to receive a list of doctors in the city** | Input: "1991"  | Output: "In Jupiter, you are 2 years old" |
-| **if the query response includes any doctors, the following information should be included about each doctors: first name, last name, address, phone number, website and whether or not the doctor is accepting new patients**| Input: "1991" | Output: "Your life expects to be 88. You still have 72 years in Mars." |
+| **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "Seattle" | Output: "Name: Lam Ngo, Title: MD, Specialties: Family Medicine" |
+| **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "Breath"  | Output: "Name: Robert G Johnston, Title: MD, Specialties: Internal Medicine" |
+| **A user should be able to enter a last name to receive a list of doctors in the city** | Input: "Ngo"  | Output: "Information about Lam Ngo" |
+
 
 ## Setup/Installation Requirements
 
