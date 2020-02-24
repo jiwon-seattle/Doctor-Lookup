@@ -21,7 +21,7 @@ export class DoctorService {
     }
   }
 
-  async getDoctorInfo(doctorName, lat, lng) {
+  async getDoctorInfo(name, lat, lng) {
     try {
       let response = await fetch(`https://api.betterdoctor.com/2018-03-01/doctors?last_name=${name}&location=${lat},${lng},100&skip=2&limit=20&user_key=${process.env.OTHER_API_KEY}`)
       let jsonifiedResponse = await response.json();

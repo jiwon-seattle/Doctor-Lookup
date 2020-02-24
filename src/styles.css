@@ -19,6 +19,10 @@ body::before {
 
 }
 
+.locationDoctor {
+  display: none;
+}
+
 .doctorName {
   display: none;
 }
