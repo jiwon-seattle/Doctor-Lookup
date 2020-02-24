@@ -12,8 +12,8 @@ A website created with object oriented JavaScript and HTML returns a medical dat
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "Seattle" | Output: "Name: Lam Ngo, Title: MD, Specialties: Family Medicine" |
-| **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "Breath"  | Output: "Name: Robert G Johnston, Title: MD, Specialties: Internal Medicine" |
-| **A user should be able to enter a last name to receive a list of doctors in the city** | Input: "Ngo"  | Output: "Information about Lam Ngo" |
+| **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "LA" Dentist"  | Output: "Name: Joel Trion Harris, Title: DDS, Specialties: Dentistry" |
+| **A user should be able to enter a last name to receive a list of doctors in the city** | Input: "New York" "Pitt"  | Output: "Name: MD Gabriel E Pitta, Specialty: Anesthesiology, Bio, Address" |
 
 
 ## Setup/Installation Requirements
