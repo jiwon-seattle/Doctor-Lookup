@@ -14,11 +14,19 @@ body {
   padding:50px;
   display: flex;
   background-clip: whitesmoke;
+  font-family: MarkOT,Arial,Helvetica,sans-serif;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.item {
+  background-color:#09265a;
+  padding: 8px 0 24px;
+  width: 100%;
+  color: #fff;
 }
 
 img {
@@ -31,12 +39,12 @@ img {
   flex-wrap: wrap;
 }
 
-.locationDoctor {
+#doctorName {
   display: none;
 }
 
-.doctorName {
-  display: none;
+.btn-info {
+  border-radius: 25px;
 }
 
 #searchDoctorName {
