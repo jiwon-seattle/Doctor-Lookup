@@ -6,21 +6,13 @@ import { DoctorService } from './doctor-service'
 
 $(document).ready(function() {
   $('#searchDoctorName').click(function() {
-    // $(".locationDoctor").show()
-    // $(".doctorName").show()
-    // $(".locationIssue").hide()
-    // $(".Issue").hide()
     $("#doctorIssue").toggle()
     $("#doctorName").toggle()
   })
 
   $('#searchIssue').click(function() {
-    // $(".locationDoctor").hide()
-    // $(".doctorName").hide()
-    // $(".locationIssue").show()
-    // $(".Issue").show()
-    $("#doctorIssue").toggle();
-    $("#doctorName").toggle();
+    $("#doctorIssue").toggle()
+    $("#doctorName").toggle()
   })
 
   $('#doctorIssue').submit(function(event) {
