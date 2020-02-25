@@ -6,26 +6,25 @@ import { DoctorService } from './doctor-service'
 
 $(document).ready(function() {
   $('#searchDoctorName').click(function() {
-    $(".doctorName").show();
-    $(".locationDoctor").show();
-    $(".Issue").hide();
-    $(".locationIssue").hide();
+    $(".locationDoctor").show()
+    $(".doctorName").show()
+    $(".locationIssue").hide()
+    $(".Issue").hide()
   })
 
   $('#searchIssue').click(function() {
-    $(".doctorName").hide();
-    $(".locationDoctor").hide();
-    $(".Issue").show();
-    $(".locationIssue").show();
+    $(".locationDoctor").hide()
+    $(".doctorName").hide()
+    $(".locationIssue").show()
+    $(".Issue").show()
   })
 
   $('#doctorIssue').submit(function(event) {
     event.preventDefault()
-    console.log('hi')
 
     const city = $('#locationIssue').val()
     const issue = $('#issue').val()
-    console.log(issue)
+
     asynAPICall(issue)
 
     async function asynAPICall(issue) {
@@ -34,11 +33,10 @@ $(document).ready(function() {
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
         const doctorResponse = await doctorService.getDoctors(issue, lan, lng)
-        console.log('doctorResponse' + doctorResponse)
         let doctors = doctorService.doctors(doctorResponse)
-        console.log(doctors)
         let doctorList = doctorService.doctorsProfile(doctorResponse)
-        console.log(doctorList.data.specialties[0])
+        doctors
+        doctorList
 
       }
 
@@ -47,13 +45,10 @@ $(document).ready(function() {
 
   $('#doctorName').submit(function(event) {
     event.preventDefault()
-    console.log('hello')
-    $("#doctorsInCity").hide();
+    $("#doctorsInCity").hide()
 
     const city = $('#locationDoctor').val()
     const name  = $('#name').val()
-    console.log(name)
-    console.log(city)
     asynAPICall(name)
 
     async function asynAPICall(name) {
@@ -62,10 +57,8 @@ $(document).ready(function() {
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
         const doctorResponse = await doctorService.getDoctorInfo(name, lan, lng)
-        console.log('doctorResponse is' + doctorResponse)
-
         let doctorDetail = doctorService.doctorInfo(doctorResponse)
-        console.log('doctor detail is' + doctorDetail)
+        doctorDetail
 
       }
 

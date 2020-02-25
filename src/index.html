@@ -8,24 +8,27 @@
     </head>
     <body>
       <div class="container">
-        <h1>Search potential doctors in the city that you are looking for.</h1>
+        <div class="item">
+        <h1>Doctor Lookup</h1>
+        <h3>Search potential doctors in the city that you are looking for.</h3>
 
         <form id="doctorIssue">
           <div class="form-row">
             <div class="locationIssue">
               <label for="location">Enter a location:</label>
               &nbsp;
-              <input class="form-control-sm" id="locationIssue" type="text" "submit" required>
+              <input id="locationIssue" type="text" required>
               &nbsp;
             </div>
             <div class="Issue">
               <label for="Issue">A medical issue:</label>
-              &nbsp;
-              <input class="form-control-sm" type="text" id="issue" required>
+              <input type="text" id="issue" required>
+       
               <button type="submit" class="btn-info">Find the doctors</button>
               <button id="searchDoctorName" type="button">Search by doctor's last name?</button>
+
             </div>
-          </div>  
+          </div>
         </form>
 
 
@@ -34,73 +37,76 @@
               <div class="locationDoctor">
                 <label for="location">Enter a location:</label>
                 &nbsp;
-                <input class="form-control-sm" id="locationDoctor" type="text" "submit" required>
+                <input class="form-control-md" id="locationDoctor" type="text" required>
                 &nbsp;
               </div>
               <div class="doctorName">
-                <label for="doctorName">A doctor name:</label>
-                &nbsp;
-                <input class="form-control-sm" type="text" id="name" required>
+                <label for="doctorName">Doctor's last name:</label>
+                <input class="form-control-md" type="text" id="name" required>
+         
                 <button type="submit" class="btn-info">Find the doctors</button>
                 <button id="searchIssue" type="button">Search by medical issue?</button>
+       
               </div>
             </div>
           </form>
-
-
-        <div id="doctorsInCity"></div>
-        <script id="doctors-template" type="text/x-handlers-template">
-        <h4>Better Doctor - Doctor Search Results</h4>
-        <table>
-          <thead>
-          <th>Name</th>
-          <th>Title</h5></th>
-          <th>specialties</th>
-          </thead>
-          <tbody>
-          {{#data}}
-          <tr>
-            <td><a id="{{uid}}" class="doctorsName">
-            {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
-            </td>
-
-            <td>{{profile.title}}</td>
-            <td>{{specialties.[0].name}}</td>
-            </tr>
-            {{/data}}
-            </tbody>
-          </table>
-        </script>
-
-        <div id="doctorInformation"></div>
-        <script id="doctorInfo-template" type="text/x-handlers-template">
+        </div>
+        
+        <div class="item">
+            &nbsp;&nbsp;
+        <img id="doctor" src="https://cdn.pixabay.com/photo/2017/09/27/20/55/clinical-trial-icon-2793430_1280.png">
+        </div>
+        
       
+        <div class="break">
+          <div id="doctorsInCity"></div>
+          <script id="doctors-template" type="text/x-handlers-template">
+            <h4>Better Doctor - Doctor Search Results</h4>
+            <table cellpadding="10" width="100%">
+              <thead>
+                <th>Name</th>
+                <th>Title</h5></th>
+                <th>specialties</th>
+              </thead>
+              <tbody>
+                {{#data}}
+                <tr>
+                  <td><a id="{{uid}}" class="doctorsName">
+                  {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
+                  </td>
+                  <td>{{profile.title}}</td>
+                  <td>{{specialties.[0].name}}</td>
+                </tr>
+                {{/data}}
+              </tbody>
+            </table>
+          </script>
 
-
-        <h4>Better Doctor - Doctor Search Results</h4>
-        <table cellpadding="10">
-
-            <thead>
+          <div id="doctorInformation"></div>
+          <script id="doctorInfo-template" type="text/x-handlers-template">
+            <h4>Better Doctor - Doctor Search Results</h4>
+            <table cellpadding="10" width="100%">
+              <thead>
                 <th>Picture</th>
                 <th>Doctor</th>
                 <th>Specialty</th>
-                <th style="width:40%">Bio</th>
+                <th>Bio</th>
                 <th>Address & Contact</th>
-                </thead>
-          <tbody>
-          {{#data}}
-          <tr>
-            
-            <td><img src="{{profile.image_url}}"></img></td>
-            <td style="white-space:nowrap"> <strong>{{profile.title}}</strong> {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</td>
-            <td>{{specialties.[0].name}}</td>
-            <td style="width:40%">{{profile.bio}}</td>
-            <td style="white-space:nowrap">{{practices.[0].visit_address.street}} {{practices.[0].visit_address.city}} {{practices.[0].visit_address.zip}} {{practices.[0].visit_address.state}}{{practices.[0].phones.[0].phones.[0].[0]}}</td>
-            </tr>
-            {{/data}}
-            </tbody>
-          </table>
-      </script>
-
+              </thead>
+              <tbody>
+                {{#data}}
+                <tr>
+                  <td><img src="{{profile.image_url}}"></img></td>
+                  <td style="white-space:nowrap"> <strong>{{profile.title}}</strong> {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</td>
+                  <td>{{specialties.[0].name}}</td>
+                  <td style="width:80%">{{profile.bio}}</td>
+                  <td style="white-space:nowrap">{{practices.[0].visit_address.street}} {{practices.[0].visit_address.city}} {{practices.[0].visit_address.zip}} {{practices.[0].visit_address.state}}{{practices.[0].phones.[0].phones.[0].[0]}}</td>
+                </tr>
+                {{/data}}
+              </tbody>
+            </table>
+        </script>
+        </div>
+      </div>  
     </body>
   </html>
