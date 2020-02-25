@@ -5,21 +5,30 @@ th {
 th {
   padding-right: 100px;
 }
-body::before {
-  content: "";
-  width: 100%;
+
+body {
   height: 100%;
-  position: absolute;
-  z-index: -1;
-  background: url('https://media.istockphoto.com/vectors/abstract-medical-background-with-flat-icons-and-symbols-concepts-and-vector-id1135100330?k=6&m=1135100330&s=612x612&w=0&h=R4I2eLIruKByqzdnmDVoVwfm8-8q4XmQ-pjhK82V8pA=');
-  background-size: 100% 100%;
-  opacity: 0.3;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding:50px;
+  display: flex;
+  background-clip: whitesmoke;
 }
 
-.form-control {
-  width: 400px;
+.container {
   display: flex;
+  flex-wrap: wrap;
+}
 
+img {
+  float:right;
+  width:200px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .locationDoctor {
@@ -34,9 +43,7 @@ body::before {
   background: none!important;
   border: none;
   padding: 0!important;
-  /*optional*/
   font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
   color: #069;
   text-decoration: underline;
   cursor: pointer;
@@ -46,9 +53,7 @@ body::before {
     background: none!important;
     border: none;
     padding: 0!important;
-    /*optional*/
     font-family: arial, sans-serif;
-    /*input has OS specific font-family*/
     color: #069;
     text-decoration: underline;
     cursor: pointer;
