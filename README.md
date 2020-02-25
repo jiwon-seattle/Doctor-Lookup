@@ -1,6 +1,6 @@
 # Doctor Lookup
 
-#### An application where users may enter a medical issue into a form, submit it, and receive a list of doctors in the city who can treat their medical issue. 2/14/20
+#### An application where users may enter a medical issue into a form, submit it, and receive a list of doctors in the city who can treat their medical issue. Users also search the doctors by their last name. 2/14/20
 
 #### By **Jiwon Han**
 
