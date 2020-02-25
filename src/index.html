@@ -7,16 +7,17 @@
       <title>Doctor Lookup</title>
     </head>
     <body>
+
       <div class="container">
-        <div class="item">
-        <h1>Doctor Lookup</h1>
-        <h3>Search potential doctors in the city that you are looking for.</h3>
+      
+        <div class="item">  
+        <h1>&nbsp;Doctor Lookup</h1>
+        <h3>&nbsp;Search potential doctors in the city that you are looking for.</h3>
 
         <form id="doctorIssue">
           <div class="form-row">
             <div class="locationIssue">
-              <label for="location">Enter a location:</label>
-              &nbsp;
+              <label for="location">&nbsp;&nbsp;A location:</label>
               <input id="locationIssue" type="text" required>
               &nbsp;
             </div>
@@ -24,8 +25,8 @@
             <div class="Issue">
               <label for="Issue">A medical issue:</label>
               <input type="text" id="issue" required>
-              <button type="submit" class="btn-info">Find the doctors</button>
-              <button id="searchDoctorName" type="button">Search by doctor's last name?</button>
+              <button type="submit" class="btn-info">Find doctors</button>
+              <button id="searchDoctorName" type="button" style="font-size:1rem;">Search by doctor's last name?</button>
             </div>
 
           </div>
@@ -35,17 +36,15 @@
           <form id="doctorName">
             <div class="form-row">
               <div class="locationDoctor">
-                <label for="location">Enter a location:</label>
-                &nbsp;
+                <label for="location">&nbsp;&nbsp;A location:</label>
                 <input class="form-control-md" id="locationDoctor" type="text" required>
-                &nbsp;
               </div>
 
               <div class="doctorName">
-                <label for="doctorName">Doctor's last name:</label>
+                <label for="doctorName">&nbsp;Doctor's last name:</label>
                 <input class="form-control-md" type="text" id="name" required>
-                <button type="submit" class="btn-info">Find the doctors</button>
-                <button id="searchIssue" type="button">Search by medical issue?</button>
+                <button type="submit" class="btn-info">Find doctors</button>
+                <button id="searchIssue" type="button" style="font-size:1rem;">Search by medical issue?</button>
               </div>
 
             </div>
@@ -70,11 +69,11 @@
               <tbody>
                 {{#data}}
                 <tr>
-                  <td><a id="{{uid}}" class="doctorsName">
+                  <td style="width:33%"><a id="{{uid}}" class="doctorsName">
                   {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</a>
                   </td>
-                  <td>{{profile.title}}</td>
-                  <td>{{specialties.[0].name}}</td>
+                  <td style="width:33%">{{profile.title}}</td>
+                  <td style="width:33%">{{specialties.[0].name}}</td>
                 </tr>
                 {{/data}}
               </tbody>
@@ -98,7 +97,7 @@
                   <td><img src="{{profile.image_url}}"></img></td>
                   <td style="white-space:nowrap"> <strong>{{profile.title}}</strong> {{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</td>
                   <td>{{specialties.[0].name}}</td>
-                  <td style="width:80%">{{profile.bio}}</td>
+                  <td style="width:70%">{{profile.bio}}</td>
                   <td style="white-space:nowrap">{{practices.[0].visit_address.street}} {{practices.[0].visit_address.city}} {{practices.[0].visit_address.zip}} {{practices.[0].visit_address.state}}{{practices.[0].phones.[0].phones.[0].[0]}}</td>
                 </tr>
                 {{/data}}
