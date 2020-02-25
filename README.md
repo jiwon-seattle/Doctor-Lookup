@@ -15,9 +15,12 @@ A website created with object oriented JavaScript and HTML returns a medical dat
 | **A user should be able to enter a medical issue to receive a list of doctors in the city** | Input: "LA" Dentist"  | Output: "Name: Joel Trion Harris, Title: DDS, Specialties: Dentistry" |
 | **A user should be able to enter a last name to receive a list of doctors in the city** | Input: "New York" "Pitt"  | Output: "Name: MD Gabriel E Pitta, Specialty: Anesthesiology, Bio, Address" |
 
+## Authorization
+This application requires APIs generated from OpenCage Geocoder and BetterDoctor API.
+Visit the sites to receive free APIs, and declare your APIs in the doctor-service.js file.
+Please refer to the getDoctorByCity, getDoctors, getDoctorInfo async functions. 
 
 ## Setup/Installation Requirements
-
 1. Download and install Node.js from the official website.
 2. Clone this repository, https://github.com/jiwon-seattle/Doctor-Lookup.git.
 3. Use a command line/Bash to navigate to this project.
