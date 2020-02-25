@@ -31,9 +31,7 @@ $(document).ready(function() {
         let lan = response.results[0].geometry.lat
         let lng = response.results[0].geometry.lng
         const doctorResponse = await doctorService.getDoctors(issue, lan, lng);
-        console.log('doctorResponse' + doctorResponse);
         let doctors = doctorService.doctors(doctorResponse);
-        console.log(doctors)
         let doctorList = doctorService.doctorsProfile(doctorResponse)
         doctorList
       }
@@ -43,7 +41,6 @@ $(document).ready(function() {
       event.preventDefault();
       const city = $('#locationDoctor').val();
       const name = $('#name').val();
-      console.log(name)
       $("#doctorsIntheCity").hide();
       $("#doctorInformation").show();
 
@@ -55,12 +52,9 @@ $(document).ready(function() {
           let lan = response.results[0].geometry.lat
           let lng = response.results[0].geometry.lng
           const doctorResponse = await doctorService.getDoctorInfo(name, lan, lng);
-          console.log('doctorResponse' + doctorResponse);
           let doctors = doctorService.doctors(doctorResponse);
-          console.log(doctors)
           let doctorInfo = doctorService.doctorInfo(doctorResponse)
           doctorInfo
-          console.log(doctorInfo.data)
         }
     });
 
