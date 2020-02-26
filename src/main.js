@@ -20,7 +20,7 @@ $(document).ready(function() {
     event.preventDefault();
     const city = $('#locationIssue').val();
     const issue = $('#issue').val();
-    $("#doctorsIntheCity").show();
+    $("#doctorsInCity").show();
     $("#doctorInformation").hide();
 
     cityIssueAPI(issue);
@@ -41,7 +41,7 @@ $(document).ready(function() {
       event.preventDefault();
       const city = $('#locationDoctor').val();
       const name = $('#name').val();
-      $("#doctorsIntheCity").hide();
+      $("#doctorsInCity").hide();
       $("#doctorInformation").show();
 
       cityNameAPI(name);
