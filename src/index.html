@@ -9,22 +9,25 @@
     <body>
 
       <div class="container">
-      
-        <div class="item">  
+
+        <div class="item">
+        <br>
         <h1>&nbsp;Doctor Lookup</h1>
+        <br>
+        <br>
         <h3>&nbsp;Search potential doctors in the city that you are looking for.</h3>
 
         <form id="doctorIssue">
           <div class="form-row">
             <div class="locationIssue">
               <label for="location">&nbsp;&nbsp;A location:</label>
-              <input id="locationIssue" type="text" required>
+              <input id="locationIssue" type="text" placeholder='E.g. "Seattle"' required>
               &nbsp;
             </div>
 
             <div class="Issue">
               <label for="Issue">A medical issue:</label>
-              <input type="text" id="issue" required>
+              <input type="text" id="issue" placeholder='E.g. "Dermatology"' required>
               <button type="submit" class="btn-info">Find doctors</button>
               <button id="searchDoctorName" type="button" style="font-size:1rem;">Search by doctor's last name?</button>
             </div>
@@ -37,12 +40,12 @@
             <div class="form-row">
               <div class="locationDoctor">
                 <label for="location">&nbsp;&nbsp;A location:</label>
-                <input class="form-control-md" id="locationDoctor" type="text" required>
+                <input class="form-control-md" id="locationDoctor" type="text" placeholder='E.g. "LA"' required>
               </div>
 
               <div class="doctorName">
                 <label for="doctorName">&nbsp;Doctor's last name:</label>
-                <input class="form-control-md" type="text" id="name" required>
+                <input class="form-control-md" type="text" id="name" placeholder='E.g. "Smith"' required>
                 <button type="submit" class="btn-info">Find doctors</button>
                 <button id="searchIssue" type="button" style="font-size:1rem;">Search by medical issue?</button>
               </div>
@@ -50,12 +53,12 @@
             </div>
           </form>
         </div>
-        
+
         <div class="item">
           &nbsp;&nbsp;
           <img id="doctor" src="https://cdn.pixabay.com/photo/2017/09/27/20/55/clinical-trial-icon-2793430_1280.png">
         </div>
-        
+
         <div class="break">
           <div id="doctorsInCity"></div>
           <script id="doctors-template" type="text/x-handlers-template">
@@ -105,7 +108,4 @@
             </table>
         </script>
         </div>
-      </div>  
-
-    </body>
-</html>
+      </div>
