@@ -37,6 +37,7 @@ Please refer to the getDoctorByCity, getDoctors, getDoctorInfo async functions.
 * HTML
 * CSS
 * NPM
+* Geocoder & BetterDoctor API
 
 ## Support and contact details
 
